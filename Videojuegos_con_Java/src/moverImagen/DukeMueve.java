@@ -2,6 +2,7 @@ package moverImagen;
 
 import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.Graphics2D;
 import java.awt.Image;
 import java.io.IOException;
 
@@ -17,6 +18,8 @@ public class DukeMueve extends JFrame implements Runnable {
     int dukeX = 50;
     int dukeY = 50;
     Thread hilo;
+    Image dbImage;
+    Graphics2D g2d;
 	/**
 	 * Launch the application.
 	 */
@@ -58,9 +61,16 @@ public class DukeMueve extends JFrame implements Runnable {
 	
 	@Override
 	public void paint(java.awt.Graphics g) {
-		g.setColor(Color.black);
-		g.fillRect(0, 0, getWidth(), getHeight());
-		g.drawImage(duke, dukeX, dukeY,400,400, null);//imagen, x, y, observer
+		if(dbImage == null) {
+			dbImage = createImage(getWidth(), getHeight());
+			g2d = (Graphics2D) dbImage.getGraphics();
+		}
+		
+		g2d.setColor(Color.black);
+		g2d.fillRect(0, 0, getWidth(), getHeight());
+		g2d.drawImage(duke, dukeX, dukeY,400,400, null);//imagen, x, y, observer
+		
+		g.drawImage(dbImage, 0, 0, this);
 	}
 	
 	@Override
