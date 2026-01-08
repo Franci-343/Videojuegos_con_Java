@@ -34,7 +34,7 @@ public class Carita extends JFrame {
 	 */
 	public Carita() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(350, 200, 800, 500);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -45,7 +45,14 @@ public class Carita extends JFrame {
 		g.setColor(Color.black);
 		g.fillRect(0,0,getWidth(),getHeight());	
 		g.setColor(Color.yellow);
-		g.fillOval(50, 50, 200, 200); // Cara
+		g.fillOval(250, 150, 200, 200); // Cara
+		
+		g.setColor(Color.black);
+		g.fillOval(320, 200, 30, 30); // Ojo izquierdo
+		g.fillOval(270, 200, 30, 30); // Ojo derecho
+		
+		g.setColor(Color.red);
+		g.fillOval(290,280,60,20); // Boca
 	}
 
 }
